@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBV방식 Blog</title>
+    
+    <style>
+        .contents:hover{
+            background-color:burlywood;
+        }
+    </style>
+
+    <a href = "/">home</a>
+    
+</head>
+<body>
+    <table border='1'>
+        <caption><span style="zoom : 150%;">Blog</span></caption>
+        <thead>
+            <tr>
+                <td>순서</td>
+                <td>글 제목</td>
+                <td>작성 시간</td>
+                <td>수정 시간</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in post2_list %}
+            <tr class="contents">
+                <td>{{p.pk}}</td>
+                <td><a href="{{p.get_absolute_url}}">{{p.title}}</a></td>
+                <td>{{p.created_at}}</td>
+                <td>{{p.updated_at}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
